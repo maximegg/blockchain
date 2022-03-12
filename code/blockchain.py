@@ -12,10 +12,11 @@ class Blockchain:
             for r in range(int(read)):
                 self.chain.append(JungleCoin(0, 0, open(f"blockchain_data/Data/data {r + 1}.txt", "r+").read()))
 
-        self.display_chain()
-
     def generate_genesis_block(self):
         self.chain.append(JungleCoin("0", ['Genesis Block']))
+        open("blockchain_data/Data/data 1.txt", "w+").write(f"{self.chain[0].block_data}\n")
+        open("blockchain_data/Hash/hash 1.txt", "w+").write(f"{self.chain[0].block_hash}\n")
+        open("blockchain_data/sheet.txt", "w+").write(str(1))
 
     def create_block_from_transaction(self, transaction_list):
         previous_block_hash = self.last_block.block_hash
