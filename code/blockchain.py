@@ -12,8 +12,6 @@ class Blockchain:
             for r in range(int(read)):
                 self.chain.append(JungleCoin(0, 0, open(f"blockchain_data/Data/data {r + 1}.txt", "r+").read()))
 
-        self.display_chain()
-
     def generate_genesis_block(self):
         self.chain.append(JungleCoin("0", ['Genesis Block']))
 
